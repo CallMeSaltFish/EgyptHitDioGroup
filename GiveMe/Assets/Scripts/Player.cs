@@ -52,7 +52,7 @@ public class Player : MonoBehaviour,IPointerClickHandler
         timer = -5f;
     }
 
-    public void Smile()
+    public void Smile() //此button事件结束后，场景切换
     {
         image.sprite = childHappy;
         changeTimer = 0f;
@@ -91,10 +91,10 @@ public class Player : MonoBehaviour,IPointerClickHandler
             sleep();
         }
 
-        if (changeTimer >= 0)
+        if (changeTimer >= 0)    //场景切换
         {
             changeTimer += Time.deltaTime;
-            if (changeTimer > 5) SceneManager.LoadScene(2);
+            if (changeTimer > 5) SceneManager.LoadScene(3);
         }
     }
 

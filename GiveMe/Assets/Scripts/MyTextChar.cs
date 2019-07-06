@@ -17,14 +17,13 @@ public class MyTextChar : MonoBehaviour
     private bool isPrint = false;
     public float perCharSpeed = 10;
 
-    private int text_length = 0;
-    private string Ctext;
     // Use this for initialization
+
     void Start()
     {
-
         uiText = GetComponent<Text>();
-        words = GetComponent<Text>().text;
+        words = GetComponent<Text>().text.Replace("1", PlayerState.GetName());
+        //Debug.Log(words);
         isPrint = true;
     }
 

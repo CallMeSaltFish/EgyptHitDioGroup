@@ -38,8 +38,8 @@ public class Born : MonoBehaviour
         if (over)
         {
             timer += Time.deltaTime;
-            if(timer>4)
-            SceneManager.LoadScene(1);
+            if(timer>6)
+            SceneManager.LoadScene(2);
         }
     }
 
