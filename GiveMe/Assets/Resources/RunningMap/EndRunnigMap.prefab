@@ -102,7 +102,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2044188623
+  m_SortingLayerID: -1303824887
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3e798af743eb9cf43ac344e6d88285a7, type: 3}
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3368668967083959980}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9f711d6d2244d74a8813a023716b738, type: 3}
   m_Name: 
@@ -329,16 +329,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3368668965551178350}
     m_Modifications:
-    - target: {fileID: 5613175358682431020, guid: f7594ef92f251cb458f06178a3847160,
-        type: 3}
-      propertyPath: m_Name
-      value: RunningMap
-      objectReference: {fileID: 0}
-    - target: {fileID: 5613175358682431020, guid: f7594ef92f251cb458f06178a3847160,
-        type: 3}
-      propertyPath: m_TagString
-      value: BackGround
-      objectReference: {fileID: 0}
     - target: {fileID: 5613175358682431022, guid: f7594ef92f251cb458f06178a3847160,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -393,6 +383,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613175358682431020, guid: f7594ef92f251cb458f06178a3847160,
+        type: 3}
+      propertyPath: m_Name
+      value: RunningMap
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613175358682431020, guid: f7594ef92f251cb458f06178a3847160,
+        type: 3}
+      propertyPath: m_TagString
+      value: BackGround
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613175358682431021, guid: f7594ef92f251cb458f06178a3847160,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1303824887
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613175358682431021, guid: f7594ef92f251cb458f06178a3847160,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7594ef92f251cb458f06178a3847160, type: 3}
