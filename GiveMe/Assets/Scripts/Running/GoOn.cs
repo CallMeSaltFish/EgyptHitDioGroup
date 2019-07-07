@@ -16,6 +16,7 @@ public class GoOn : MonoBehaviour
             //Time.timeScale = 1;
             player.GetComponent<PlayerControl>().enabled = true;
             player.GetComponent<Animator>().enabled = true;
+            GameObject.FindWithTag("Meow").GetComponent<MeowMove>().enabled = true;
             button.gameObject.SetActive(false);
         });
     }

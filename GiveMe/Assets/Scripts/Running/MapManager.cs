@@ -91,7 +91,7 @@ public class MapManager : MonoBehaviour
         maps = Resources.LoadAll<GameObject>("RunningMap");
         player = GameObject.FindGameObjectWithTag("Player");
     }
-    private const float pieces = 5;
+    private const float pieces = 10;
     private const float interval = 10.8f;
     private const float totalDistance = (pieces + 1) * interval;
     private void Start()
