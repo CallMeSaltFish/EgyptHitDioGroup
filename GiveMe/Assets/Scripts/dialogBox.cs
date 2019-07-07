@@ -8,9 +8,12 @@ public class dialogBox : MonoBehaviour
     public GameObject robot;
     public GameObject hug;
 
+    private SpriteRenderer spriteRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         //cola.SetActive(false);
         //robot.SetActive(false);
     }
@@ -31,6 +34,7 @@ public class dialogBox : MonoBehaviour
         }
         else if (k == 3)
         {
+            spriteRenderer.enabled = false;
             cola.SetActive(false);
             robot.SetActive(false);
             hug.SetActive(true);
