@@ -46,6 +46,7 @@ public class Born : MonoBehaviour
     public void OnEndEdit(string str)
     {
         PlayerState.SetName(str);
+        Debug.Log(str+"??");
         text3.SetActive(true);
         over = true;
     }
