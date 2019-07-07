@@ -7,7 +7,7 @@ public class ClassRoomStage : MonoBehaviour
     public GameObject laughButton;
     public GameObject helpButton;
 
-    private bool able=false;
+    private bool able=true;
     private GameObject youth;
 
     private float timer = 0f;
@@ -15,14 +15,14 @@ public class ClassRoomStage : MonoBehaviour
     void Start()
     {
         youth = GameObject.Find("youth");
-        able = false;
+        able = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > 4)
+        if (timer > 3)         //放字幕3s后出现选项
         {
             laughButton.SetActive(true);
             helpButton.SetActive(true);
@@ -32,8 +32,12 @@ public class ClassRoomStage : MonoBehaviour
     public void laugh()
     {
         if (able)
-        {        
+        {
+            Debug.Log("woc ");
             youth.GetComponent<Youth>().Sad();
+            if(this.name=="stage3")
+                youth.GetComponent<Youth>().HideStage3();
+            else
             youth.GetComponent<Youth>().HideStage2();
             able = false;
         }
@@ -45,7 +49,10 @@ public class ClassRoomStage : MonoBehaviour
         {
             PlayerState.Choice();
             youth.GetComponent<Youth>().Smile();
-            youth.GetComponent<Youth>().HideStage2();
+            if (this.name == "stage3")
+                youth.GetComponent<Youth>().HideStage3();
+            else
+                youth.GetComponent<Youth>().HideStage2();
             able = false;
         }
     }

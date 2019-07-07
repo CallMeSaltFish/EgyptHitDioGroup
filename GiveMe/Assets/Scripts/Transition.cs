@@ -7,11 +7,10 @@ public class Transition : MonoBehaviour
 {
     // Start is called before the first frame update
     private float timer=0f;
-    private Youth player;
+    public GameObject player;
 
     void Start()
     {
-        player = GameObject.Find("youth").GetComponent<Youth>();
     }
 
     // Update is called once per frame
@@ -20,7 +19,9 @@ public class Transition : MonoBehaviour
         timer += Time.deltaTime;
         if(timer>5 && Input.anyKeyDown)
         {
-            player.Move();
+            if (player.name == "youth")
+                player.GetComponent<Youth>().Move();
+            else if (player.name == "adult") player.GetComponent<Adult>().wei();
             Destroy(this.gameObject);
         }
     }

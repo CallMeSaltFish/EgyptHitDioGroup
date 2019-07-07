@@ -25,4 +25,8 @@ public class PlayerState
         return name;
     }
 
+    public static int GetPoint()
+    {
+        return choice;
+    }
 }

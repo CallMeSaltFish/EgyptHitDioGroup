@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Youth : MonoBehaviour
 {
     public GameObject makeButton;
     public GameObject dontMakeButton;
     public GameObject Stage2;
-         
+    public GameObject Stage3;
 
     private float timer = -1f;
     private Animator animator;
@@ -44,7 +45,12 @@ public class Youth : MonoBehaviour
 
     public void HideStage2()
     {
-        Stage2.SetActive(false);
+        Destroy(Stage2.gameObject);
+    }
+
+    public void HideStage3()
+    {
+        Destroy(Stage3.gameObject);
     }
 
     // Update is called once per frame
@@ -52,8 +58,20 @@ public class Youth : MonoBehaviour
     {
         if (timer >= 0)
         {
+            Debug.Log(timer);
             timer += Time.deltaTime;
-            if (timer > 4&&timer<5) Stage2.SetActive(true);
+            if (timer > 4 && timer < 5)
+                if (Stage2 != null) {
+                    Stage2.SetActive(true);
+                    Destroy(makeButton.gameObject);
+                    Destroy(dontMakeButton.gameObject);
+                }
+            else
+                {
+                    if (Stage3 != null)
+                        Stage3.SetActive(true);
+                    else SceneManager.LoadScene(4);
+                }
         }
     }
 
