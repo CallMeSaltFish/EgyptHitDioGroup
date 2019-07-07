@@ -117,6 +117,7 @@ public class BackGroundManage : MonoBehaviour
             backButton.SetActive(true);
             if (id == 2)
             {
+                PlayerState.save[2] = true;
                 tmp = Resources.Load("Prefabs/robot") as GameObject;
                 PlayerState.Choice();
             }
@@ -130,6 +131,7 @@ public class BackGroundManage : MonoBehaviour
     public void colaButtonDown() //cola||soccer
     {
         GameObject tmp;
+        
 
         if (chooseColaOrMilk == 0)
         {
@@ -137,10 +139,14 @@ public class BackGroundManage : MonoBehaviour
             backButton.SetActive(true);
             if (id == 1)
             {
+                PlayerState.save[1] = true;
                 tmp = Resources.Load("Prefabs/cola") as GameObject;
                 PlayerState.Choice();
             }
-            else tmp = Resources.Load("Prefabs/soccer") as GameObject;
+            else
+            {
+                tmp = Resources.Load("Prefabs/soccer") as GameObject;
+            }
             
             mouse = GameObject.Instantiate(tmp,
                 Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0, 0, Camera.main.farClipPlane)), Quaternion.identity);

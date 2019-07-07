@@ -47,7 +47,8 @@ public class TheEnd : MonoBehaviour
         texture = Resources.Load("Sprites/pointLeast") as Texture2D;
         least = Sprite.Create(texture, rect, new Vector2(0.5f, 0.5f));
         calculate();
-        text.text = text.text.Replace("小剑", PlayerState.GetName());
+        //text.text = text.text.Replace("小剑", PlayerState.GetName());
+        Debug.Log(ans);
         if (ans <= 2)
         {
             spriteRenderer.sprite = least;
@@ -76,7 +77,7 @@ public class TheEnd : MonoBehaviour
             bit=point % 2;
             point = point / 2;
             ans += bit;
-            if (bit > 0) text.text = text.text.Replace(Convert.ToString(i), Words.words1[i]);
+            if (PlayerState.save[i] ) text.text = text.text.Replace(Convert.ToString(i), Words.words1[i-1]);
             else text.text = text.text.Replace(Convert.ToString(i), Words.words2[i-1]);
         }
     }

@@ -20,6 +20,10 @@ public class makeFriendsButton : MonoBehaviour
         if (able)
         {
             PlayerState.Choice();
+            if (this.name == "hugButton")
+            {
+                PlayerState.save[4] = true;
+            }
             youth.GetComponent<Youth>().Smile();
             able = false;
         }

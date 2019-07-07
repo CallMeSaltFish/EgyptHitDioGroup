@@ -18,6 +18,7 @@ public class HugButton : MonoBehaviour
     {
         if (able)
         {
+            PlayerState.save[3] = true;
             able = false;
             PlayerState.Choice();
             player.GetComponent<Player>().ShowUp();

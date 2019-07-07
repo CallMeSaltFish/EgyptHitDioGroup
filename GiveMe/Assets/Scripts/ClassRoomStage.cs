@@ -47,6 +47,8 @@ public class ClassRoomStage : MonoBehaviour
     {
         if (able)
         {
+            if(this.name=="score") PlayerState.save[5] = true;
+            else if (this.name == "stage3") PlayerState.save[6] = true;
             PlayerState.Choice();
             youth.GetComponent<Youth>().Smile();
             if (this.name == "stage3")

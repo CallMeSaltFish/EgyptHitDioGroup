@@ -19,6 +19,9 @@ public class OfficeButton : MonoBehaviour
     {
         if (able)
         {
+            if(this.name=="Button") PlayerState.save[7] = true;
+            else if (this.name == "Button2") PlayerState.save[8] = true;
+            else if (this.name == "Button4") PlayerState.save[9] = true;
             PlayerState.Choice();
             adult.GetComponent<Adult>().Smile();
             able = false;
