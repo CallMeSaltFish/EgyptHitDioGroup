@@ -4,22 +4,34 @@ using UnityEngine;
 
 public class HugButton : MonoBehaviour
 {
+    private bool able=true;
 
     private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
+        able = true;
         player = GameObject.Find("player");
     }
 
     public void MyButton()
     {
-        PlayerState.Choice();
-        player.GetComponent<Player>().Smile();
+        if (able)
+        {
+            able = false;
+            PlayerState.Choice();
+            player.GetComponent<Player>().ShowUp();
+            player.GetComponent<Player>().Smile();
+        }
     }
 
     public void SpeakButton()
     {
-        player.GetComponent<Player>().Cry();
+        if (able)
+        {
+            able = false;
+            player.GetComponent<Player>().ShowUp();
+            player.GetComponent<Player>().Cry();
+        }
     }
 }

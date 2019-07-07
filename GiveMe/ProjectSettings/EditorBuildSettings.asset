@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/end.unity
     guid: 36de45711e027604bb3b6367778a17db
+  - enabled: 1
+    path: Assets/Scenes/Running.unity
+    guid: e264c5d0188cbe64794833d44f4c34ff
+  - enabled: 1
+    path: Assets/Scenes/HomeworkShooter.unity
+    guid: 725ebe7166531294ab7416fccb11d615
   m_configObjects: {}

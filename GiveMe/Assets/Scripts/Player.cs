@@ -107,10 +107,15 @@ public class Player : MonoBehaviour,IPointerClickHandler
     private void wakeUp(int k)
     {
         Debug.Log(k);
-        if (k <= 2) backGround.GetComponent<BackGroundManage>().WakeUp();
-        else BaoBao();
+        if (k <= 2)
+        {
+            backGround.GetComponent<BackGroundManage>().WakeUp();
+            image.enabled = true;
+        }
+        else {
+            BaoBao();
+        }
         childSleep.SetActive(false);
-        image.enabled = true;
         dialogBox.SetActive(true);
         dialogBox.GetComponent<dialogBox>().Show(k);
     }
@@ -119,5 +124,12 @@ public class Player : MonoBehaviour,IPointerClickHandler
     {
         talkButton.SetActive(true);
         hugButton.SetActive(true);
+        image.enabled = false;
+    }
+
+    public void ShowUp()
+    {
+        image.enabled = true;
+        dialogBox.SetActive(false);
     }
 }
