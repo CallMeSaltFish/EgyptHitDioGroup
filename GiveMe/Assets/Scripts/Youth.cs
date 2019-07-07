@@ -77,6 +77,7 @@ public class Youth : MonoBehaviour
                     if (!game)
                     {
                         game = true;
+                        GameObject.FindWithTag("AudioSource").GetComponent<AudioSource>().Pause();
                         GameObject.Instantiate(homeWorkShooter);
                         //Stage2.SetActive(true);
                         Destroy(makeButton.gameObject);

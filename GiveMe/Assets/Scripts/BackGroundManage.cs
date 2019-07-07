@@ -167,6 +167,8 @@ public class BackGroundManage : MonoBehaviour
     public void MarketButton()
     {
         GameObject.Instantiate(running);
+        AudioSource audio = GameObject.FindWithTag("AudioSource").GetComponent<AudioSource>();
+        audio.Pause();
         livingRoomCanvas.SetActive(false);
     }
 
