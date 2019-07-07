@@ -9,6 +9,7 @@ public class TheEnd : MonoBehaviour
     public Text text;
     public GameObject move;
 
+    public GameObject nameList;
     private float stratX;
     private float stratY;
     private float t = 0;
@@ -88,6 +89,7 @@ public class TheEnd : MonoBehaviour
         if (t >= 1) {
 
             Destroy(canvas);
+            nameList.SetActive(true);
             Destroy(this);
         }
     }

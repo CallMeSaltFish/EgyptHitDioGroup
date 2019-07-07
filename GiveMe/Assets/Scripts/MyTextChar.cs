@@ -23,8 +23,8 @@ public class MyTextChar : MonoBehaviour
     {
         uiText = GetComponent<Text>();
         words = GetComponent<Text>().text.Replace("1", PlayerState.GetName());
-        words = GetComponent<Text>().text.Replace("小剑", PlayerState.GetName());
-        //Debug.Log(words);
+        //words = GetComponent<Text>().text.Replace("小剑", PlayerState.GetName());
+        Debug.Log(words);
         isPrint = true;
     }
 
