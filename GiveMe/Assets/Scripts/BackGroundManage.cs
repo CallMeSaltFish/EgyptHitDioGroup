@@ -10,6 +10,7 @@ public class BackGroundManage : MonoBehaviour
     public GameObject backButton;
     public int chooseColaOrMilk=0;
 
+    private GameObject running;
     private int id = 0;
     private GameObject livingRoomCanvas;
     private SpriteRenderer spriteRenderer;
@@ -39,6 +40,7 @@ public class BackGroundManage : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        running = Resources.Load("Prefabs/Running") as GameObject;
         marketCanvas.SetActive(false);
         marketButton.SetActive(false);
         //marketButton.onClick.AddListener(GoMarket);
@@ -162,8 +164,21 @@ public class BackGroundManage : MonoBehaviour
         spriteRenderer.sprite = livingRoom;
     }
 
+    public void MarketButton()
+    {
+        GameObject.Instantiate(running);
+        livingRoomCanvas.SetActive(false);
+    }
+
+    public  void GameFail()
+    {
+        livingRoomCanvas.SetActive(true);
+    }
+
     public void GoMarket()  //绑定的market
     {
+
+        //GameObject.Instantiate(running);
         id++;
         spriteRenderer.sprite = market;
         marketCanvas.SetActive(true);

@@ -10,6 +10,7 @@ public class Youth : MonoBehaviour
     public GameObject Stage2;
     public GameObject Stage3;
 
+    private bool game = false;
     private float timer = -1f;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
@@ -21,9 +22,12 @@ public class Youth : MonoBehaviour
     private Sprite youthHappy;
     private Sprite youthSad;
 
+    private GameObject homeWorkShooter;
+
     // Start is called before the first frame update
     void Start()
     {
+        homeWorkShooter = Resources.Load("Prefabs/homeWorkShooter") as GameObject;
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -53,6 +57,12 @@ public class Youth : MonoBehaviour
         Destroy(Stage3.gameObject);
     }
 
+    public void GameWin()
+    {
+        Stage2.SetActive(true);
+    }
+
+
     // Update is called once per frame
     void Update()
     {
@@ -61,17 +71,25 @@ public class Youth : MonoBehaviour
             Debug.Log(timer);
             timer += Time.deltaTime;
             if (timer > 4 && timer < 5)
-                if (Stage2 != null) {
-                    Stage2.SetActive(true);
-                    Destroy(makeButton.gameObject);
-                    Destroy(dontMakeButton.gameObject);
+            {
+                if (Stage2 != null)
+                {
+                    if (!game)
+                    {
+                        game = true;
+                        GameObject.Instantiate(homeWorkShooter);
+                        //Stage2.SetActive(true);
+                        Destroy(makeButton.gameObject);
+                        Destroy(dontMakeButton.gameObject);
+                    }
                 }
-            else
+                else
                 {
                     if (Stage3 != null)
                         Stage3.SetActive(true);
                     else SceneManager.LoadScene(4);
                 }
+            }
         }
     }
 

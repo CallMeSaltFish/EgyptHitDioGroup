@@ -10,10 +10,11 @@ public class FollowWithPlayer : MonoBehaviour
     private void Awake()
     {
         transform = GetComponent<Transform>();
-        playerTransform = GameObject.FindWithTag("Player").transform;
+        
     }
     private void OnEnable()
     {
+        playerTransform = GameObject.FindWithTag("Player").transform;
         offset = transform.position.x - playerTransform.position.x;
     }
     // Update is called once per frame

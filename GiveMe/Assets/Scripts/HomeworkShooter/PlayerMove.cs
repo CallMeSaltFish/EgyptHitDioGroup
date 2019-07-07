@@ -46,8 +46,9 @@ public class PlayerMove : MonoBehaviour
     IEnumerator LoadScene(Animator anim)
     {
         yield return new WaitForSeconds(anim.GetCurrentAnimatorClipInfo(0).Length);
-        //加载下一个场景
+        GameObject.Find("youth").GetComponent<Youth>().GameWin();
         Debug.Log("加载下一个场景");
+        Destroy(GameObject.Find("homeWorkShooter(Clone)"));
     }
 
 }
