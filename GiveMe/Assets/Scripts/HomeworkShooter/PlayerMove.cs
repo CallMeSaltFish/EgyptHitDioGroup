@@ -49,6 +49,7 @@ public class PlayerMove : MonoBehaviour
         GameObject.Find("youth").GetComponent<Youth>().GameWin();
         Debug.Log("加载下一个场景");
         Destroy(GameObject.Find("homeWorkShooter(Clone)"));
+        GameObject.FindWithTag("AudioSource").GetComponent<AudioSource>().Play();
     }
 
 }

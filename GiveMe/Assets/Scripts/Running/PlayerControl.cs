@@ -110,8 +110,9 @@ public class PlayerControl : MonoBehaviour
         Camera.main.GetComponent<FollowWithPlayer>().enabled = false;
         GameObject.Find("backGround").GetComponent<BackGroundManage>().GoMarket();
         Camera.main.transform.position = new Vector3(0, 0, -10);
-        Debug.Log("加载下一个场景");
+        //Debug.Log("加载下一个场景");
         Destroy(GameObject.Find("Running(Clone)"));
+        GameObject.FindWithTag("AudioSource").GetComponent<AudioSource>().Play();
     }
 
 
@@ -177,5 +178,6 @@ public class PlayerControl : MonoBehaviour
         Camera.main.GetComponent<FollowWithPlayer>().enabled = false;
         Camera.main.transform.position = new Vector3(0, 0, -10);
         Destroy(GameObject.Find("Running(Clone)"));
+        GameObject.FindWithTag("AudioSource").GetComponent<AudioSource>().Play();
     }
 }
