@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class TheEnd : MonoBehaviour
 {
+
+
     public Text text;
     public GameObject move;
 
@@ -16,6 +18,7 @@ public class TheEnd : MonoBehaviour
     private int point;
     private int bit;
     private int ans=0;
+
     private string tmpStr;
 
     private SpriteRenderer spriteRenderer;
@@ -84,13 +87,15 @@ public class TheEnd : MonoBehaviour
 
     private void Update()
     {
-        t += Time.deltaTime/60;
+        t += Time.deltaTime/68;
         if (Input.GetMouseButtonDown(0)) t += 0.1f;
-        move.transform.position = new Vector2(stratX, Mathf.Lerp(stratY, stratY + 4000, t));
+        move.transform.position = new Vector2(stratX, Mathf.Lerp(stratY, stratY + 3500, t));
         if (t >= 1) {
-
-            Destroy(canvas);
+            Destroy(GameObject.Find("summary"));
+            Destroy(GameObject.Find("Image"));
+           
             nameList.SetActive(true);
+            nameList.GetComponent<NameList>().SetAns(ans);
             Destroy(this);
         }
     }

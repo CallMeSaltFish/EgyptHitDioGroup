@@ -4,21 +4,46 @@ using UnityEngine;
 
 public class NameList : MonoBehaviour
 {
+    public GameObject mostButton;
+    public GameObject moreButton;
+    public GameObject lessButton;
+    public GameObject leastButton;
     private float timer = 0f;
+    private bool ok = false;
+    private int ans;
 
-    // Start is called before the first frame update
-    void Start()
+    public void SetAns(int k)
     {
-        
+        this.ans = k;
     }
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > 4)
+        if (timer > 4 && !ok)
         {
-            if (Input.anyKeyDown) Destroy(GameObject.Find("theEnd"));
+            if (Input.anyKeyDown)
+            {
+                ok = true;
+                Destroy(GameObject.Find("theEnd"));
+                if (ans <= 2)
+                {
+                    leastButton.SetActive(true);
+                }
+                else if (ans <= 4)
+                {
+                    lessButton.SetActive(true);
+                }
+                else if (ans <= 6)
+                {
+                    moreButton.SetActive(true);
+                }
+                else
+                {
+                    mostButton.SetActive(true);
+                }
+            }
         }
     }
 }
