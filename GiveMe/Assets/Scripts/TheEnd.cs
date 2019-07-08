@@ -15,7 +15,8 @@ public class TheEnd : MonoBehaviour
     private float t = 0;
     private int point;
     private int bit;
-    private int ans=0;
+    [HideInInspector]
+    public int ans=0;
     private string tmpStr;
 
     private SpriteRenderer spriteRenderer;
