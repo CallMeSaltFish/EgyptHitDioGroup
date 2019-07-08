@@ -23,6 +23,7 @@ public class PlayerControl : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         hpSprites = GameObject.FindGameObjectsWithTag("HpSprite");
+        //Debug.Log(hpSprites.Length);
         sr = GetComponent<SpriteRenderer>();
         hp = 2;
         UpdateHpSprite(hp);
@@ -149,24 +150,27 @@ public class PlayerControl : MonoBehaviour
 
     void UpdateHpSprite(int hp)
     {
-        //if(hp < 0)
+        //if (hp < 0)
         //{
-        //    hpSprites[0].SetActive(false);
+        //    hpSprites[0].SetActive(true);
         //    hpSprites[1].SetActive(false);
-        //    hpSprites[2].SetActive(true);
+        //    hpSprites[2].SetActive(false);
         //    return;
         //}
-        for(int i = 0;i < 3; i++)
-        {
-            if(i == 2 - hp)
+        //for (int i = 0;i < 3; i++)
+        //{
+            foreach(GameObject sprite in hpSprites)
             {
-                hpSprites[i].SetActive(true);
+                if(sprite.name.Contains(hp.ToString()))
+                {
+                    sprite.SetActive(true);
+                }
+                else
+                {
+                    sprite.SetActive(false);
+                }
             }
-            else
-            {
-                hpSprites[i].SetActive(false);
-            }
-        }
+        //}
     }
 
     void Death()
