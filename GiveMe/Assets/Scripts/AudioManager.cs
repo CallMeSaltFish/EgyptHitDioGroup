@@ -7,6 +7,7 @@ public class AudioManager : MonoBehaviour
 {
     private AudioSource audioSource;
     private AudioClip[] bgms;
+    private TheEnd theEnd;
     private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
@@ -18,17 +19,11 @@ public class AudioManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         bgms = Resources.LoadAll<AudioClip>("Audios");
     }
+
     // Update is called once per frame
     void Update()
     {
-        if(SceneManager.GetActiveScene().name == "menu")
-        {
-            ChangeBgm("MainMenu");
-        }
-        if(SceneManager.GetActiveScene().name == "Start")
-        {
-            ChangeBgm("Common");
-        }
+        ChangeBgmBySceneName();
     }
 
     void ChangeBgm(string name)
@@ -54,6 +49,41 @@ public class AudioManager : MonoBehaviour
         {
             audioSource.volume = i;
             yield return 0;
+        }
+    }
+
+    void ChangeBgmBySceneName()
+    {
+        if (SceneManager.GetActiveScene().name == "menu")
+        {
+            ChangeBgm("MainMenu");
+        }
+        if (SceneManager.GetActiveScene().name == "Start")
+        {
+            ChangeBgm("Common");
+        }
+        if (SceneManager.GetActiveScene().name == "end")
+        {
+            if (theEnd == null)
+            {
+                theEnd = GameObject.Find("theEnd").GetComponent<TheEnd>();
+                if (theEnd.ans <= 2)
+                {
+                    ChangeBgm("BadEnding");
+                }
+                else if (theEnd.ans <= 4)
+                {
+                    ChangeBgm("CommonHappiness");
+                }
+                else if (theEnd.ans <= 6)
+                {
+                    ChangeBgm("LifeTop");
+                }
+                else
+                {
+                    ChangeBgm("BadEnding");
+                }
+            }
         }
     }
 }
